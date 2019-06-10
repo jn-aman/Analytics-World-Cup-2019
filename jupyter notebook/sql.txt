@@ -1,0 +1,1 @@
+select `location`,count(*) from twitter group by `location` order by count(location) desc limit 10;  

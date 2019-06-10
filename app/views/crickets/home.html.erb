@@ -1,0 +1,141 @@
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script> 
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+
+
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=KoHo');
+body {
+	color: #333;
+	margin: 0;
+	margin-top: 20%;
+	padding: 0;
+  font-family: 'KoHo', Verdana;
+}
+#line{
+  height:1.5px;
+  background: #333;
+  width:300px;
+  border-radius:100%;
+}
+.banner {
+	display: block;
+	min-height: 200px;
+	width: 100%;
+	position: relative;
+}
+.lead{  
+	font-size: 38px;
+}
+.typed_wrap {
+	display: block;
+	height: auto;
+	padding: 30px;
+	
+	/*centers it in the .banner*/
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+
+.typed_wrap h1 {
+	display: inline;
+}
+
+/*Add custom cursor so it auto inherits font styles*/
+.typed::after {
+	content: '|';
+	display: inline;
+	-webkit-animation: blink 0.7s infinite;
+	-moz-animation: blink 0.7s infinite;
+	animation: blink 0.7s infinite;
+}
+
+/*Removes cursor that comes with typed.js*/
+.typed-cursor{
+   opacity: 0;
+	display: none;
+}
+/*Custom cursor animation*/
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+
+
+</style>
+
+
+
+<div id="page_wrap">
+	
+	<div class="banner">
+		<div class="typed_wrap">
+			<p class="lead text-center"> <span class="typed"></span><hr id="line"></p>
+		</div>
+	</div>
+</div>
+
+<script>
+	
+	var options = {
+		strings: ["Hello Techies !!", "Welcome to World Cup 2019!!"],
+		// Optionally use an HTML element to grab strings from (must wrap each string in a <p>)
+		stringsElement: null,
+		// typing speed
+		typeSpeed: 50,
+		// time before typing starts
+		startDelay: 1200,
+		// backspacing speed
+		backSpeed: 10,
+		// time before backspacing
+		backDelay: 500,
+		// loop
+		loop: true,
+		// false = infinite
+		loopCount: 5,
+		// show cursor
+		showCursor: false,
+		// character for cursor
+		cursorChar: "|",
+		// attribute to type (null == text)
+		attr: null,
+		// either html or text
+		contentType: 'html',
+		// call when done callback function
+		callback: function() {},
+		// starting callback function before each string
+		preStringTyped: function() {},
+		//callback for every typed string
+		onStringTyped: function() {},
+		// callback for reset
+		resetCallback: function() {}
+	}
+
+var typed = new Typed(".typed", options);
+
+window.setTimeout(function () {
+        window.location.href = "/crickets/slider";
+    }, 4*1000);
+window.addEventListener('popstate', () => {
+  location.reload();
+}, false);
+
+</script>
