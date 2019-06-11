@@ -385,4 +385,4 @@ database_connection = create_engine('mysql+mysqlconnector://{0}:{1}@{2}/{3}'.
 for county in vocab_l:
     dataframe_collection[county].to_sql(name=county, con=database_connection, if_exists='append',index=False,chunksize=500)
 
-
+print("DONEEEEEE");

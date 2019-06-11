@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20190611055920) do
 
   create_table "afganistan", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "dhoni"
     t.bigint "virat"
     t.bigint "rohit_sharma"
@@ -87,7 +86,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "lockie_ferguson"
     t.bigint "_martin_guptill"
     t.bigint "matt_henry"
-    t.bigint "tom_latham_wk"
+    t.bigint "tom_latham"
     t.bigint "colin_munro"
     t.bigint "faf_du_plessis"
     t.bigint "quinton_de_kock"
@@ -107,11 +106,20 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "isuru_udana"
     t.bigint "milinda_siriwardana"
     t.bigint "avishka_fernando"
-    t.index ["id"], name: "ix_afganistan_id", using: :btree
+    t.bigint "jason_holder"
+    t.bigint "evin_lewis"
+    t.bigint "darren_bravo"
+    t.bigint "chris_gayle"
+    t.bigint "andre_russell"
+    t.bigint "carlos_brathwaite"
+    t.bigint "nicholas_pooran"
+    t.bigint "oshane_thomas"
+    t.bigint "shai_hope"
+    t.bigint "shimron_hetmyer"
+    t.text   "tweet",                 limit: 65535
   end
 
   create_table "australia", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "dhoni"
     t.bigint "virat"
     t.bigint "rohit_sharma"
@@ -185,7 +193,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "lockie_ferguson"
     t.bigint "_martin_guptill"
     t.bigint "matt_henry"
-    t.bigint "tom_latham_wk"
+    t.bigint "tom_latham"
     t.bigint "colin_munro"
     t.bigint "faf_du_plessis"
     t.bigint "quinton_de_kock"
@@ -205,11 +213,20 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "isuru_udana"
     t.bigint "milinda_siriwardana"
     t.bigint "avishka_fernando"
-    t.index ["id"], name: "ix_australia_id", using: :btree
+    t.bigint "jason_holder"
+    t.bigint "evin_lewis"
+    t.bigint "darren_bravo"
+    t.bigint "chris_gayle"
+    t.bigint "andre_russell"
+    t.bigint "carlos_brathwaite"
+    t.bigint "nicholas_pooran"
+    t.bigint "oshane_thomas"
+    t.bigint "shai_hope"
+    t.bigint "shimron_hetmyer"
+    t.text   "tweet",                 limit: 65535
   end
 
   create_table "bangladesh", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "dhoni"
     t.bigint "virat"
     t.bigint "rohit_sharma"
@@ -283,7 +300,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "lockie_ferguson"
     t.bigint "_martin_guptill"
     t.bigint "matt_henry"
-    t.bigint "tom_latham_wk"
+    t.bigint "tom_latham"
     t.bigint "colin_munro"
     t.bigint "faf_du_plessis"
     t.bigint "quinton_de_kock"
@@ -303,11 +320,20 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "isuru_udana"
     t.bigint "milinda_siriwardana"
     t.bigint "avishka_fernando"
-    t.index ["id"], name: "ix_bangladesh_id", using: :btree
+    t.bigint "jason_holder"
+    t.bigint "evin_lewis"
+    t.bigint "darren_bravo"
+    t.bigint "chris_gayle"
+    t.bigint "andre_russell"
+    t.bigint "carlos_brathwaite"
+    t.bigint "nicholas_pooran"
+    t.bigint "oshane_thomas"
+    t.bigint "shai_hope"
+    t.bigint "shimron_hetmyer"
+    t.text   "tweet",                 limit: 65535
   end
 
   create_table "country", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "india"
     t.bigint "pakistan"
     t.bigint "sri_lanka"
@@ -318,11 +344,15 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "new_zealand"
     t.bigint "south_africa"
     t.bigint "west_indies"
-    t.index ["id"], name: "ix_country_id", using: :btree
+    t.text   "tweet",        limit: 65535
+  end
+
+  create_table "cricket2s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "england", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "dhoni"
     t.bigint "virat"
     t.bigint "rohit_sharma"
@@ -396,7 +426,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "lockie_ferguson"
     t.bigint "_martin_guptill"
     t.bigint "matt_henry"
-    t.bigint "tom_latham_wk"
+    t.bigint "tom_latham"
     t.bigint "colin_munro"
     t.bigint "faf_du_plessis"
     t.bigint "quinton_de_kock"
@@ -416,11 +446,20 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "isuru_udana"
     t.bigint "milinda_siriwardana"
     t.bigint "avishka_fernando"
-    t.index ["id"], name: "ix_england_id", using: :btree
+    t.bigint "jason_holder"
+    t.bigint "evin_lewis"
+    t.bigint "darren_bravo"
+    t.bigint "chris_gayle"
+    t.bigint "andre_russell"
+    t.bigint "carlos_brathwaite"
+    t.bigint "nicholas_pooran"
+    t.bigint "oshane_thomas"
+    t.bigint "shai_hope"
+    t.bigint "shimron_hetmyer"
+    t.text   "tweet",                 limit: 65535
   end
 
   create_table "india", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "dhoni"
     t.bigint "virat"
     t.bigint "rohit_sharma"
@@ -494,7 +533,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "lockie_ferguson"
     t.bigint "_martin_guptill"
     t.bigint "matt_henry"
-    t.bigint "tom_latham_wk"
+    t.bigint "tom_latham"
     t.bigint "colin_munro"
     t.bigint "faf_du_plessis"
     t.bigint "quinton_de_kock"
@@ -514,11 +553,20 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "isuru_udana"
     t.bigint "milinda_siriwardana"
     t.bigint "avishka_fernando"
-    t.index ["id"], name: "ix_india_id", using: :btree
+    t.bigint "jason_holder"
+    t.bigint "evin_lewis"
+    t.bigint "darren_bravo"
+    t.bigint "chris_gayle"
+    t.bigint "andre_russell"
+    t.bigint "carlos_brathwaite"
+    t.bigint "nicholas_pooran"
+    t.bigint "oshane_thomas"
+    t.bigint "shai_hope"
+    t.bigint "shimron_hetmyer"
+    t.text   "tweet",                 limit: 65535
   end
 
   create_table "new_zealand", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "dhoni"
     t.bigint "virat"
     t.bigint "rohit_sharma"
@@ -592,7 +640,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "lockie_ferguson"
     t.bigint "_martin_guptill"
     t.bigint "matt_henry"
-    t.bigint "tom_latham_wk"
+    t.bigint "tom_latham"
     t.bigint "colin_munro"
     t.bigint "faf_du_plessis"
     t.bigint "quinton_de_kock"
@@ -612,11 +660,20 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "isuru_udana"
     t.bigint "milinda_siriwardana"
     t.bigint "avishka_fernando"
-    t.index ["id"], name: "ix_new_zealand_id", using: :btree
+    t.bigint "jason_holder"
+    t.bigint "evin_lewis"
+    t.bigint "darren_bravo"
+    t.bigint "chris_gayle"
+    t.bigint "andre_russell"
+    t.bigint "carlos_brathwaite"
+    t.bigint "nicholas_pooran"
+    t.bigint "oshane_thomas"
+    t.bigint "shai_hope"
+    t.bigint "shimron_hetmyer"
+    t.text   "tweet",                 limit: 65535
   end
 
   create_table "pakistan", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "dhoni"
     t.bigint "virat"
     t.bigint "rohit_sharma"
@@ -690,7 +747,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "lockie_ferguson"
     t.bigint "_martin_guptill"
     t.bigint "matt_henry"
-    t.bigint "tom_latham_wk"
+    t.bigint "tom_latham"
     t.bigint "colin_munro"
     t.bigint "faf_du_plessis"
     t.bigint "quinton_de_kock"
@@ -710,11 +767,20 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "isuru_udana"
     t.bigint "milinda_siriwardana"
     t.bigint "avishka_fernando"
-    t.index ["id"], name: "ix_pakistan_id", using: :btree
+    t.bigint "jason_holder"
+    t.bigint "evin_lewis"
+    t.bigint "darren_bravo"
+    t.bigint "chris_gayle"
+    t.bigint "andre_russell"
+    t.bigint "carlos_brathwaite"
+    t.bigint "nicholas_pooran"
+    t.bigint "oshane_thomas"
+    t.bigint "shai_hope"
+    t.bigint "shimron_hetmyer"
+    t.text   "tweet",                 limit: 65535
   end
 
   create_table "south_africa", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "dhoni"
     t.bigint "virat"
     t.bigint "rohit_sharma"
@@ -788,7 +854,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "lockie_ferguson"
     t.bigint "_martin_guptill"
     t.bigint "matt_henry"
-    t.bigint "tom_latham_wk"
+    t.bigint "tom_latham"
     t.bigint "colin_munro"
     t.bigint "faf_du_plessis"
     t.bigint "quinton_de_kock"
@@ -808,11 +874,20 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "isuru_udana"
     t.bigint "milinda_siriwardana"
     t.bigint "avishka_fernando"
-    t.index ["id"], name: "ix_south_africa_id", using: :btree
+    t.bigint "jason_holder"
+    t.bigint "evin_lewis"
+    t.bigint "darren_bravo"
+    t.bigint "chris_gayle"
+    t.bigint "andre_russell"
+    t.bigint "carlos_brathwaite"
+    t.bigint "nicholas_pooran"
+    t.bigint "oshane_thomas"
+    t.bigint "shai_hope"
+    t.bigint "shimron_hetmyer"
+    t.text   "tweet",                 limit: 65535
   end
 
   create_table "sri_lanka", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "dhoni"
     t.bigint "virat"
     t.bigint "rohit_sharma"
@@ -886,7 +961,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "lockie_ferguson"
     t.bigint "_martin_guptill"
     t.bigint "matt_henry"
-    t.bigint "tom_latham_wk"
+    t.bigint "tom_latham"
     t.bigint "colin_munro"
     t.bigint "faf_du_plessis"
     t.bigint "quinton_de_kock"
@@ -906,7 +981,17 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "isuru_udana"
     t.bigint "milinda_siriwardana"
     t.bigint "avishka_fernando"
-    t.index ["id"], name: "ix_sri_lanka_id", using: :btree
+    t.bigint "jason_holder"
+    t.bigint "evin_lewis"
+    t.bigint "darren_bravo"
+    t.bigint "chris_gayle"
+    t.bigint "andre_russell"
+    t.bigint "carlos_brathwaite"
+    t.bigint "nicholas_pooran"
+    t.bigint "oshane_thomas"
+    t.bigint "shai_hope"
+    t.bigint "shimron_hetmyer"
+    t.text   "tweet",                 limit: 65535
   end
 
   create_table "tweetsentiments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -923,7 +1008,6 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "west_indies", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "id"
     t.bigint "dhoni"
     t.bigint "virat"
     t.bigint "rohit_sharma"
@@ -997,7 +1081,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "lockie_ferguson"
     t.bigint "_martin_guptill"
     t.bigint "matt_henry"
-    t.bigint "tom_latham_wk"
+    t.bigint "tom_latham"
     t.bigint "colin_munro"
     t.bigint "faf_du_plessis"
     t.bigint "quinton_de_kock"
@@ -1017,7 +1101,17 @@ ActiveRecord::Schema.define(version: 0) do
     t.bigint "isuru_udana"
     t.bigint "milinda_siriwardana"
     t.bigint "avishka_fernando"
-    t.index ["id"], name: "ix_west_indies_id", using: :btree
+    t.bigint "jason_holder"
+    t.bigint "evin_lewis"
+    t.bigint "darren_bravo"
+    t.bigint "chris_gayle"
+    t.bigint "andre_russell"
+    t.bigint "carlos_brathwaite"
+    t.bigint "nicholas_pooran"
+    t.bigint "oshane_thomas"
+    t.bigint "shai_hope"
+    t.bigint "shimron_hetmyer"
+    t.text   "tweet",                 limit: 65535
   end
 
 end
