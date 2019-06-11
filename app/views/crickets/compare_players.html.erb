@@ -1,0 +1,97 @@
+
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+
+
+<style>
+A.class1 {color:grey;}
+A.class1:link  { color: grey;}
+A.class1:visited {text-decoration: none; color: grey;}
+A.class1:hover {text-decoration: none; color: white;}
+A.class1:active {text-decoration: none; color: white;}
+
+
+    /* style the elements with CSS */
+    #pleaserotate-graphic{
+        fill: #fff;
+    }
+
+    #pleaserotate-backdrop {
+        color: #fff;
+        background-color: #000;
+    }
+
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+#scroll {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.page {
+  width: 100%;
+  height: 100vh;
+}
+
+.btn1 {
+	        vertical-align: bottom;
+
+display: table-cell;
+        text-align: center;
+
+
+}
+
+</style>
+
+
+
+
+  
+
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script> 
+
+
+
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+<center>
+
+<div id="scroll">
+	  <div class="page" id="one"><br>
+<h1 class="display-2"><%= @first.titleize+" vs "+@second.titleize%></h1>
+<br><br>
+  	<%= column_chart @result ,  width: "800px", height: "500px" ,xtitle: "Countries", ytitle: "More Number of Tweets", dataset: {borderWidth: 2}, download: {filename: "top10twitterer"}%>
+
+<style type="text/css">
+  .btn-group1{
+position: absolute;
+margin-left: 48%;
+  }
+</style>
+
+<div class="btn-group1" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-outline-primary" onclick=" window.location.href='\/crickets\/slider_c'   " >Back  </button>
+  <button type="button" class="btn btn-outline-primary" onclick=" window.location.href='\/crickets\/slider'   ">Back to Main</button>
+</div>
+
+
+  </div>
+  
+</div>
+
+
+</center>
+
+

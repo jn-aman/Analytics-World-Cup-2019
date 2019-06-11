@@ -1,0 +1,256 @@
+
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+<style>
+
+
+
+    /* style the elements with CSS */
+    #pleaserotate-graphic{
+        fill: #fff;
+    }
+
+    #pleaserotate-backdrop {
+        color: #fff;
+        background-color: #000;
+    }
+
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+#scroll {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.page {
+  width: 100%;
+  height: 100vh;
+ display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+  font-family: 'Roboto', sans-serif;
+
+}
+
+
+#one, #three, #five, #seven, #nine, #eleven{
+    background-color: black;
+    color: white;
+}
+
+#two {
+    background-color: white;
+    color: black;
+}
+
+A.class1 {color:white;}
+A.class1:link  {und: none; color: white;}
+A.class1:visited {text-decoration: none; color: white;}
+A.class1:hover {text-decoration: none; color: red;}
+A.class1:active {text-decoration: none; color: white;}
+
+A.class2 {color:black;}
+A.class2:link {text-decoration: none; color: black;}
+A.class2:visited {text-decoration: none; color: black;}
+A.class2:hover {text-decoration: none; color: blue;}
+A.class2:active {text-decoration: none; color: black;}
+
+
+
+</style>
+
+
+
+
+  
+
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script> 
+
+
+
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+<center>
+
+<div id="scroll">
+	  <div class="page" id="one"><br>
+<h1 class="display-1"><a class="class1" href="/crickets/country">CountryWise Statistics</a></h1>
+<br><br>
+
+  	
+  
+  </div>
+  <div class="page" id="two">
+<br>
+<h1 class="display-1"><a class="class2" href="/crickets/slider_com_con">Country A vs Country B</a></h1>
+<br><br>
+
+
+
+
+</div>
+  <div class="page" id="three">
+<br>
+<h1 class="display-1"><a class="class1" href="/crickets/slider_com_players">Cricketer A vs Cricketer B</a></h1>
+<br><br>
+
+
+  </div>
+  
+<div class="page" id="eleven">
+<br>
+<h1 class="display-1"><a class="class1" href="/crickets/slider">Back</a></h1>
+<br><br>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	
+
+
+function ScrollHandler(pageId) {
+  var page = document.getElementById(pageId);
+  var pageStart = page.offsetTop;
+  var pageJump = false;
+  var viewStart;
+  var duration = 1000;
+  var scrolled = document.getElementById("scroll");
+
+  function scrollToPage() {
+    pageJump = true;
+
+    // Calculate how far to scroll
+    var startLocation = viewStart;
+    var endLocation = pageStart;
+    var distance = endLocation - startLocation;
+
+    var runAnimation;
+
+    // Set the animation variables to 0/undefined.
+    var timeLapsed = 0;
+    var percentage, position;
+
+    var easing = function(progress) {
+      return progress < 0.5
+        ? 4 * progress * progress * progress
+        : (progress - 1) * (2 * progress - 2) * (2 * progress - 2) + 1; // acceleration until halfway, then deceleration
+    };
+
+    function stopAnimationIfRequired(pos) {
+      if (pos == endLocation) {
+        cancelAnimationFrame(runAnimation);
+        setTimeout(function() {
+          pageJump = false;
+        }, 500);
+      }
+    }
+
+    var animate = function() {
+      timeLapsed += 16;
+      percentage = timeLapsed / duration;
+      if (percentage > 1) {
+        percentage = 1;
+        position = endLocation;
+      } else {
+        position = startLocation + distance * easing(percentage);
+      }
+      scrolled.scrollTop = position;
+      runAnimation = requestAnimationFrame(animate);
+      stopAnimationIfRequired(position);
+      console.log("position=" + scrolled.scrollTop + "(" + percentage + ")");
+    };
+    // Loop the animation function
+    runAnimation = requestAnimationFrame(animate);
+  }
+
+  window.addEventListener("wheel", function(event) {
+    viewStart = scrolled.scrollTop;
+    if (!pageJump) {
+      var pageHeight = page.scrollHeight;
+      var pageStopPortion = pageHeight / 2;
+      var viewHeight = window.innerHeight;
+
+      var viewEnd = viewStart + viewHeight;
+      var pageStartPart = viewEnd - pageStart;
+      var pageEndPart = pageStart + pageHeight - viewStart;
+
+      var canJumpDown = pageStartPart >= 0;
+      var stopJumpDown = pageStartPart > pageStopPortion;
+
+      var canJumpUp = pageEndPart >= 0;
+      var stopJumpUp = pageEndPart > pageStopPortion;
+
+      var scrollingForward = event.deltaY > 0;
+      if (
+        (scrollingForward && canJumpDown && !stopJumpDown) ||
+        (!scrollingForward && canJumpUp && !stopJumpUp)
+      ) {
+        event.preventDefault();
+        scrollToPage();
+      }
+      false; //
+    } else {
+      event.preventDefault();
+    }
+  });
+}
+new ScrollHandler("one");
+new ScrollHandler("two");
+new ScrollHandler("three");
+
+
+new ScrollHandler("eleven");
+
+
+
+
+
+
+</script>
