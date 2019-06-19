@@ -23,7 +23,7 @@ cursor.execute(query)
 
 ## fetching all records from the 'cursor' object
 records = cursor.fetchall()
-
+db.close();
 last_id=records[0][0]
 print(last_id)
 
@@ -133,17 +133,6 @@ streamer.filter(track=WORDS)
 
 vocab=["india","pakistan" ,"sri lanka","england","afganistan","australia","bangladesh","new zealand","south africa","west indies"]
 
-
-# In[23]:
-
-
-query = "SELECT * FROM twitter where id > "+str(last_id)
-query
-
-
-# In[24]:
-
-
 import pandas as pd
 import numpy as np
 import mysql.connector as mysql
@@ -163,6 +152,7 @@ cursor.execute(query)
 
 ## fetching all records from the 'cursor' object
 records = cursor.fetchall()
+db.close();
 
 # Showing the data
 # for record in records:
@@ -223,7 +213,6 @@ def word_count(str1):
     return counts
 
 
-# In[28]:
 
 
 for i in range(len(records)):
@@ -374,14 +363,14 @@ for county in vocab_l:
 # In[37]:
 
 
-from sqlalchemy import create_engine
-database_username = 'root'
-database_password = ''
-database_ip       = 'localhost'
-database_name     = 'SopraSteria'
-database_connection = create_engine('mysql+mysqlconnector://{0}:{1}@{2}/{3}'.
-                                               format(database_username, database_password, 
-                                                      database_ip, database_name))
+# from sqlalchemy import create_engine
+# database_username = 'root'
+# database_password = ''
+# database_ip       = 'localhost'
+# database_name     = 'SopraSteria'
+# database_connection = create_engine('mysql+mysqlconnector://{0}:{1}@{2}/{3}'.
+#                                                format(database_username, database_password, 
+#                                                       database_ip, database_name))
 for county in vocab_l:
     dataframe_collection[county].to_sql(name=county, con=database_connection, if_exists='append',index=False,chunksize=500)
 
